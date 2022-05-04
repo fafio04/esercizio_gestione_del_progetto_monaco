@@ -1,5 +1,5 @@
 
-
+#include <iostream>
 #define DIM 50
 using namespace std;
 
@@ -13,17 +13,15 @@ struct Libri
     string codice;
     string genere;
 };
-/*!
-    \file esecizio.cpp
-    \brief implementazione di una bibblioteca digitale
-    \author Flavio Monaco
-    \version 1.0
-*/
 
-/*!
-    \fn inserimento
-    \brief serve per inserire il numero dei libri e le loro specifiche
-*/
+    //! \file esecizio.cpp
+    //! \brief implementazione di una bibblioteca digitale
+    //! \author Flavio Monaco
+    //! \version 1.0
+
+
+    //! \fn inserimento
+    //! \brief serve per inserire il numero dei libri e le loro specifiche
 
 int inserimento(Libri bibblioteca[])
 {
@@ -33,24 +31,24 @@ int inserimento(Libri bibblioteca[])
     
     for(int i = 0; i < n; i++)
     {
-        cout<<"Titolo"<<endl<<"\n";;
+        cout<<"Titolo"<<endl<<"\n";
         cin>>bibblioteca[i].titolo;
-        cout<<"Codice"<<endl<<"\n";;
+        cout<<"Codice"<<endl<<"\n";
         cin>>bibblioteca[i].codice;
-        cout<<"Autore"<<endl<<"\n";;
+        cout<<"Autore"<<endl<<"\n";
         cin>>bibblioteca[i].autore;
-        cout<<"Editore"<<endl<<"\n";;
+        cout<<"Editore"<<endl<<"\n";
         cin>>bibblioteca[i].editore;
-        cout<<"Anno"<<endl<<"\n";;
+        cout<<"Anno"<<endl<<"\n";
         cin>>bibblioteca[i].anno;
-        cout<<"Genere"<<endl<<"\n";;
+        cout<<"Genere"<<endl<<"\n";
         cin>>bibblioteca[i].genere;
-        cout<<"Prezzo"<<endl<<"\n";;
+        cout<<"Prezzo"<<endl<<"\n";
         cin>>bibblioteca[i].prezzo;
     }
-    /*!
-        \return restituisce il numero dei libri inseriti
-    */
+    
+       //! \return restituisce il numero dei libri inseriti
+    
     return n;
 }
 /*!
@@ -63,12 +61,12 @@ void stampa(Libri bibblioteca[], int n)
     {
         cout<<"Catalogo"<<endl;
         cout<<"Titolo\n"<<bibblioteca[i].titolo<<endl<<"\n";
-        cout<<"Codice\n"<<bibblioteca[i].codice<<endl<<"\n";;
-        cout<<"Autore\n"<<bibblioteca[i].autore<<endl<<"\n";;
-        cout<<"Editore\n"<<bibblioteca[i].editore<<endl<<"\n";;
+        cout<<"Codice\n"<<bibblioteca[i].codice<<endl<<"\n";
+        cout<<"Autore\n"<<bibblioteca[i].autore<<endl<<"\n";
+        cout<<"Editore\n"<<bibblioteca[i].editore<<endl<<"\n";
         cout<<"Anno\n"<<bibblioteca[i].anno<<endl<<"\n";;
-        cout<<"Genere\n"<<bibblioteca[i].genere<<endl<<"\n";;
-        cout<<"Prezzo\n"<<bibblioteca[i].prezzo<<endl<<"\n";;
+        cout<<"Genere\n"<<bibblioteca[i].genere<<endl<<"\n";
+        cout<<"Prezzo\n"<<bibblioteca[i].prezzo<<endl<<"\n";
     }
 }
 /*!
@@ -104,7 +102,26 @@ void elimina(Libri bibblioteca[], int n)
 */
 void ricerca(Libri bibblioteca[], int n)
 {
-
+    string ricerca;
+    int i = 0;
+    
+    cout<<"Inserire il codice del libro che si vuole cercare"<<endl;;
+    cin>>ricerca;
+    
+    while(bibblioteca[i].codice == ricerca)
+    {
+        for(int i = 0; i < n; i++)
+        {
+                cout<<"Catalogo"<<endl;
+                cout<<"Titolo\n"<<bibblioteca[i].titolo<<endl<<"\n";
+                cout<<"Codice\n"<<bibblioteca[i].codice<<endl<<"\n";
+                cout<<"Autore\n"<<bibblioteca[i].autore<<endl<<"\n";
+                cout<<"Editore\n"<<bibblioteca[i].editore<<endl<<"\n";
+                cout<<"Anno\n"<<bibblioteca[i].anno<<endl<<"\n";;
+                cout<<"Genere\n"<<bibblioteca[i].genere<<endl<<"\n";
+                cout<<"Prezzo\n"<<bibblioteca[i].prezzo<<endl<<"\n";
+        }
+    }
 }
 
 /*!
@@ -113,7 +130,32 @@ void ricerca(Libri bibblioteca[], int n)
 */
 void modifica(Libri bibblioteca[], int n)
 {
-
+   string modifica;
+   int i = 0;
+   
+   cout<<"Inserire il codice del libro che si vuole modificare"<<endl;
+   cin>>modifica;
+   
+   while(bibblioteca[i].codice == modifica)
+   {
+      for(int i = 0; i < n; i++)
+        {
+            cout<<"Titolo"<<endl<<"\n";
+            cin>>bibblioteca[i].titolo;
+            cout<<"Codice"<<endl<<"\n";
+            cin>>bibblioteca[i].codice;
+            cout<<"Autore"<<endl<<"\n";
+            cin>>bibblioteca[i].autore;
+            cout<<"Editore"<<endl<<"\n";
+            cin>>bibblioteca[i].editore;
+            cout<<"Anno"<<endl<<"\n";
+            cin>>bibblioteca[i].anno;
+            cout<<"Genere"<<endl<<"\n";
+            cin>>bibblioteca[i].genere;
+            cout<<"Prezzo"<<endl<<"\n";
+            cin>>bibblioteca[i].prezzo;
+        }
+   }
 }
 /*! 
     \fn menù
@@ -140,11 +182,12 @@ void menu(Libri bibblioteca[], int n, int s)
         elimina(bibblioteca, n);
     break;
     case 4:
-        
+    
+        ricerca(bibblioteca, n);
     break;
     case 5:
         
-        
+     modifica(bibblioteca, n);   
     
     default:
     cout << "Uscita dal menù" << endl;
