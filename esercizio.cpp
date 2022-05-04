@@ -1,7 +1,27 @@
-
+     
 #include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctype.h>
+#include "funzioni.hpp"
 #define DIM 50
+
 using namespace std;
+
+/*! \mainpage <CENTER> Bibblioteca </CENTER>
+    * \author <B> Monaco Flavio</B>
+    * \version <B> V1.0 </B>
+    * \date <B> 4 maggio 2022 </B>
+    * 
+    * \section caratteristiche CARATTERISTICHE DEL PROGETTO
+    *
+    *  Il software permette di:
+    * - inserire un libro
+    * - ricercare un libro
+    * - modificare le sue caratteristiche
+    * - eliminare un libro
+    * -stampare il catalogo
+    */
 
 struct Libri
 {
@@ -14,13 +34,10 @@ struct Libri
     string genere;
 };
 
-    //! \file esecizio.cpp
-    //! \brief implementazione di una bibblioteca digitale
-    //! \author Flavio Monaco
-    //! \version 1.0
 
 
-    //! \fn inserimento
+
+    
     //! \brief serve per inserire il numero dei libri e le loro specifiche
 
 int inserimento(Libri bibblioteca[])
@@ -28,7 +45,7 @@ int inserimento(Libri bibblioteca[])
     int n;
     cout<<"Quanti libri vuoi inserire?"<<endl;
     cin>>n;
-    
+
     for(int i = 0; i < n; i++)
     {
         cout<<"Titolo"<<endl<<"\n";
@@ -46,9 +63,9 @@ int inserimento(Libri bibblioteca[])
         cout<<"Prezzo"<<endl<<"\n";
         cin>>bibblioteca[i].prezzo;
     }
-    
+
        //! \return restituisce il numero dei libri inseriti
-    
+
     return n;
 }
 /*!
@@ -77,10 +94,10 @@ void elimina(Libri bibblioteca[], int n)
 {
     string elimina;
     int i = 0;
-    
+
     cout<<"inserire il codice del libro che si vuole eliminare"<<endl;
     cin>>elimina;
-    
+
     if(bibblioteca[i].codice == elimina)
     {
         for(int i = 0; i < n; i++)
@@ -104,10 +121,10 @@ void ricerca(Libri bibblioteca[], int n)
 {
     string ricerca;
     int i = 0;
-    
+
     cout<<"Inserire il codice del libro che si vuole cercare"<<endl;;
     cin>>ricerca;
-    
+
     while(bibblioteca[i].codice == ricerca)
     {
         for(int i = 0; i < n; i++)
@@ -132,10 +149,10 @@ void modifica(Libri bibblioteca[], int n)
 {
    string modifica;
    int i = 0;
-   
+
    cout<<"Inserire il codice del libro che si vuole modificare"<<endl;
    cin>>modifica;
-   
+
    while(bibblioteca[i].codice == modifica)
    {
       for(int i = 0; i < n; i++)
@@ -157,7 +174,7 @@ void modifica(Libri bibblioteca[], int n)
         }
    }
 }
-/*! 
+/*!
     \fn menù
     \brief serve per scegliere l'azione da fare
 */
@@ -168,32 +185,32 @@ void menu(Libri bibblioteca[], int n, int s)
       cout<<"1 inserimento libri \n| 2 stampa libri \n| 3 elimina libro \n| 4 cercare un libro \n| 5 cambiare libro \n|6 uscita menù|"<<endl;
       cin>>s;
     switch(s){
-    
+
     case 1:
-    
+
         n = inserimento(bibblioteca);
     break;
     case 2:
-    
-       stampa(bibblioteca, n); 
+
+       stampa(bibblioteca, n);
     break;
     case 3:
-    
+
         elimina(bibblioteca, n);
     break;
     case 4:
-    
+
         ricerca(bibblioteca, n);
     break;
     case 5:
-        
-     modifica(bibblioteca, n);   
-    
+
+     modifica(bibblioteca, n);
+
     default:
     cout << "Uscita dal menù" << endl;
     }
   }while(s<=5);
-  
+
 }
 
 int main()
@@ -201,8 +218,8 @@ int main()
     Libri bibblioteca[DIM];
     int n = 0;
     int s = 0;
-    
+
     menu(bibblioteca, n, s);
-    
+
     return 0;
 }
