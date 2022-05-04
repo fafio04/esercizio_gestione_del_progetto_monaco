@@ -1,16 +1,5 @@
-/******************************************************************************
 
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
 
-*******************************************************************************/
-
-#include <iostream>
-
-using namespace std;
-
-#include <iostream>
 #define DIM 50
 using namespace std;
 
@@ -24,6 +13,17 @@ struct Libri
     string codice;
     string genere;
 };
+/*!
+    \file esecizio.cpp
+    \brief implementazione di una bibblioteca digitale
+    \author Flavio Monaco
+    \version 1.0
+*/
+
+/*!
+    \fn inserimento
+    \brief serve per inserire il numero dei libri e le loro specifiche
+*/
 
 int inserimento(Libri bibblioteca[])
 {
@@ -48,10 +48,15 @@ int inserimento(Libri bibblioteca[])
         cout<<"Prezzo"<<endl<<"\n";;
         cin>>bibblioteca[i].prezzo;
     }
-    
+    /*!
+        \return restituisce il numero dei libri inseriti
+    */
     return n;
 }
-
+/*!
+    \fn stampa
+    \brief serve per stampare a video il catalogo dei libri
+*/
 void stampa(Libri bibblioteca[], int n)
 {
     for(int i = 0; i < n; i++)
@@ -66,18 +71,21 @@ void stampa(Libri bibblioteca[], int n)
         cout<<"Prezzo\n"<<bibblioteca[i].prezzo<<endl<<"\n";;
     }
 }
-
+/*!
+    \fn elimina
+    \brief serve per eliminare un libro
+*/
 void elimina(Libri bibblioteca[], int n)
 {
     string elimina;
     int i = 0;
     
-    cout<<"inserire il codice dle libro che si vuol eliminare"<<endl;
+    cout<<"inserire il codice del libro che si vuole eliminare"<<endl;
     cin>>elimina;
     
-    while(bibblioteca[i].codice != elimina)
+    if(bibblioteca[i].codice == elimina)
     {
-        for(i = 0 ; i < n; i++)
+        for(int i = 0; i < n; i++)
         {
             bibblioteca[i].titolo = "";
             bibblioteca[i].autore = "";
@@ -90,6 +98,27 @@ void elimina(Libri bibblioteca[], int n)
     }
 }
 
+/*!
+    \fn ricerca
+    \brief serve per ricercare un libro
+*/
+void ricerca(Libri bibblioteca[], int n)
+{
+
+}
+
+/*!
+    \fn modifica
+    \brief serve per modificare le specifiche di un libro
+*/
+void modifica(Libri bibblioteca[], int n)
+{
+
+}
+/*! 
+    \fn menù
+    \brief serve per scegliere l'azione da fare
+*/
 void menu(Libri bibblioteca[], int n, int s)
 {
     do
@@ -115,10 +144,8 @@ void menu(Libri bibblioteca[], int n, int s)
     break;
     case 5:
         
-    break;
-    case 6:
-        cout<<"uscita menù"<<endl;
         
+    
     default:
     cout << "Uscita dal menù" << endl;
     }
